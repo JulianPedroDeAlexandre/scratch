@@ -28,7 +28,7 @@ para sempre
 quando [bandeira verde] for clicado
 vá para x: (-178) y: (-146)
 para sempre
-    se <tecla [espaço] pressionada?>
+  se &lt;tecla [espaço] pressionada?&gt; então
         deslize por (0.2) s até x: (-178) y: (posição y + 80)
         espere (0.2) segundos
         deslize por (0.2) s até x: (-178) y: (posição y - 80)
@@ -43,7 +43,7 @@ para sempre
 quando [bandeira verde] for clicado
 aponte para a direção (90)
 para sempre
-    se <tocando em [cactus]?>
+  se &lt;tocando em [cactos]?&gt; então
         transmita [game over]
     </pre>
     <p class="explicacao">👉 Isso verifica se o personagem encostou no cacto. Se sim, envia a mensagem "game over".</p>
@@ -63,7 +63,7 @@ para sempre
     <pre>
 quando [bandeira verde] for clicado
 para sempre
-    se <posição x = -249> então
+    se &lt;(posição x) = (-249)&gt; então
         vá para x: (250) y: (-146)
     </pre>
     <p class="explicacao">👉 Reinicia o cacto no lado direito da tela.</p>
@@ -92,7 +92,7 @@ para sempre
 
 quando [bandeira verde] for clicado
 para sempre
-    se <posição x = -273> então
+    se &lt;(posição x) = -273&gt; então
         vá para x: (168) y: (-16)
     </pre>
     <p class="explicacao">👉 Nuvem que se move e retorna para a direita ao sair da tela.</p>
@@ -109,7 +109,7 @@ para sempre
 
 quando [bandeira verde] for clicado
 para sempre
-    se <posição x = -273> então
+    se  &lt;posição x = -273&gt; então
         vá para x: (216) y: (145)
     </pre>
   </div>
@@ -130,7 +130,7 @@ mostre
   </div>
 
   <div class="bloco">
-    <h2>🪦 Encerramento de Todos os Sprites</h2>
+    <h2>🪦 Todos os atores nemos o gameover</h2>
     <pre>
 quando eu receber [game over]
 esconda
