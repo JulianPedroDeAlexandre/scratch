@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Documentação do Projeto - Foguete Espacial</title>
+  <link rel="stylesheet" href="./jogo4.css">
+
+</head>
+<body>
+  <h1>📘 Documentação do Projeto - Foguete Espacial</h1>
+
+  <div class="bloco">
+    <h2>🌌 Cenário - Fundo animado</h2>
+    <pre>
+quando a bandeira verde for clicada
+sempre
+    próxima fantasia
+    aguarde (0.2) segundos
+fim
+    </pre>
+  </div>
+
+  <div class="bloco">
+    <h2>🛸 Foguete - Controle com setas</h2>
+    <pre>
+quando a bandeira verde for clicada
+vá para x: (0) y: (-120)
+sempre
+    se &lt;tecla [seta para esquerda v] pressionada?&gt; então
+        mude x por (-5)
+    fim
+    se &lt;tecla [seta para direita v] pressionada?&gt; então
+        mude x por (5)
+    fim
+fim
+    </pre>
+  </div>
+
+  <div class="bloco">
+    <h2>🔫 Disparar lasers</h2>
+    <pre>
+quando a bandeira verde for clicada
+sempre
+    se &lt;tecla [espaço v] pressionada?&gt; então
+        crie um clone de [laser v]
+        toque o som [laser v]
+    fim
+fim
+    </pre>
+  </div>
+
+  <div class="bloco">
+    <h2>☄️ Inimigos (Meteoros) - Movimento e respawn</h2>
+    <pre>
+quando a bandeira verde for clicada
+sempre
+    vá para x: (número aleatório entre (-220) e (220)) y: (180)
+    deslize em (2) segs para x: (posição x) y: (-180)
+    se &lt;(posição y) = (-180)&gt; então
+        esconda
+    fim
+fim
+    </pre>
+  </div>
+
+  <div class="bt">
+    <button class="voltar">
+      <a href="./jogo3.html">Voltar</a>
+  </button>
+    <button class="avancar">
+      <a href="./jogo5.html">Avançar</a>
+  </button>
+  </div>
+
+</body>
+</html>

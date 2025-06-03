@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Documentação do Projeto - Labirinto Fuga do Fantasma</title>
+  <link rel="stylesheet" href="./jogo5.css">
+ 
+</head>
+<body>
+  <h1>📘 Documentação do Projeto - Labirinto Fuga do Fantasma</h1>
+
+  <div class="bloco">
+    <h2>🧍 Personagem Principal</h2>
+    <h3>🔧 Inicialização:</h3>
+    <pre>
+quando a bandeira verde for clicada
+vá para x: (-180) y: (0)
+aponte para a direção (90)
+defina [velocidade v] para (4)
+    </pre>
+
+    <h3>🎮 Controles (Setas):</h3>
+    <pre>
+sempre
+    se &lt;tecla [↑]&gt; então
+        mude y por (velocidade)
+    se &lt;tecla [↓]&gt; então
+        mude y por ((velocidade) * (-1))
+    se &lt;tecla [←]&gt; então
+        mude x por ((velocidade) * (-1))
+    se &lt;tecla [→]&gt; então
+        mude x por (velocidade)
+    </pre>
+
+    <h3>🧱 Colisão com Parede:</h3>
+    <pre>
+sempre
+    se &lt;tocando em [Parede v]&gt; então
+        mude x por ((velocidade) * (-1))
+        mude y por ((velocidade) * (-1))
+        toque o som [bump v]
+    </pre>
+  </div>
+
+  <div class="bloco">
+    <h2>👻 Fantasma (Inimigo)</h2>
+    <h3>🔧 Inicialização + Perseguir Jogador:</h3>
+    <pre>
+quando a bandeira verde for clicada
+vá para x: (180) y: (0)
+sempre
+    aponte para [Personagem v]
+    mova (2) passos
+    se &lt;tocando em [Personagem v]&gt; então
+        transmita [Game Over v]
+    </pre>
+  </div>
+
+  <div class="bloco">
+    <h2>🚪 Saída (Objetivo Final)</h2>
+    <h3>🔧 Configuração:</h3>
+    <pre>
+quando a bandeira verde for clicada
+mostre
+vá para x: (0) y: (120)
+    </pre>
+
+    <h3>✅ Chegada na Saída (Vitória):</h3>
+    <pre>
+sempre
+    se &lt;tocando em [Saída v]&gt; então
+        transmita [Vitória v]
+    </pre>
+  </div>
+
+  <div class="bloco">
+    <h2>🎉 Mensagem de Vitória</h2>
+    <pre>
+quando eu receber [Vitória v]
+diga "Parabéns! Você escapou!" por (2) segundos
+pare [todos v]
+    </pre>
+  </div>
+
+  <div class="bloco">
+    <h2>💀 Game Over</h2>
+    <h3>📛 Quando for pego:</h3>
+    <pre>
+quando eu receber [Game Over v]
+diga "Você foi pego! Tente novamente." por (2) segundos
+pare [todos v]
+    </pre>
+  </div>
+  <div class="bt">
+    <button class="voltar">
+      <a href="./jogo4.html">Voltar</a>
+  </button>
+    <button class="avancar">
+      <a href="./jogo6.html">Avançar</a>
+  </button>
+  </div>
+</body>
+</html>

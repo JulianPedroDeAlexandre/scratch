@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Documentação do Projeto - Jogo Pong</title>
+  <link rel="stylesheet" href="jogo2.css">
+  
+</head>
+<body>
+  <h1>📘 Documentação do Projeto - Jogo Pong</h1>
+
+  <div class="bloco">
+    <h2>🏓 Raquete do Jogador 1 - Controle com teclas (W/S)</h2>
+    <pre>
+quando a bandeira verde for clicada
+vá para x: (-200) y: (0)
+sempre
+    se &lt;tecla [w v] pressionada?&gt; então
+        mude y por (10)
+    fim
+    se &lt;tecla [s v] pressionada?&gt; então
+        mude y por (-10)
+    fim
+fim
+    </pre>
+  </div>
+
+  <div class="bloco">
+    <h2>🧱 Limitar movimento na tela</h2>
+    <pre>
+quando a bandeira verde for clicada
+sempre
+    se &lt;(posição y) &gt; (160)&gt; então
+        defina y para (160)
+    fim
+    se &lt;(posição y) &lt; (-160)&gt; então
+        defina y para (-160)
+    fim
+fim
+    </pre>
+  </div>
+
+  <div class="bloco">
+    <h2>🏓 Raquete do Jogador 2 - IA simples</h2>
+    <pre>
+quando a bandeira verde for clicada
+vá para x: (200) y: (0)
+sempre
+    defina y para (posição y de [bola v])
+fim
+    </pre>
+  </div>
+
+  <div class="bloco">
+    <h2>⚽ Bola - Movimento e quique</h2>
+    <pre>
+quando a bandeira verde for clicada
+vá para x: (0) y: (0)
+aponte para direção (número aleatório entre (-45) e (45))
+sempre
+    mova (5) passos
+    se &lt;tocando em [Raquete1 v]?&gt; ou &lt;tocando em [Raquete2 v]?&gt; então
+        gire para a esquerda (180) graus
+        mude [velocidade v] por (1)
+    fim
+    se &lt;(posição y) &gt; (180)&gt; ou &lt;(posição y) &lt; (-180)&gt; então
+        gire para a esquerda (180) graus
+    fim
+fim
+    </pre>
+  </div>
+
+  <div class="bloco">
+    <h2>📊 Pontuação</h2>
+    <pre>
+quando a bandeira verde for clicada
+defina [Pontos P1 v] para (0)
+defina [Pontos P2 v] para (0)
+
+quando eu receber [P1 marca ponto v]
+mude [Pontos P1 v] por (1)
+vá para x: (0) y: (0)
+
+quando eu receber [P2 marca ponto v]
+mude [Pontos P2 v] por (1)
+vá para x: (0) y: (0)
+    </pre>
+  </div>
+  <div class="bt">
+    <button class="voltar">
+      <a href="./index.html">Voltar</a>
+  </button>
+    <button class="avancar">
+      <a href="./jogo3.html">Avançar</a>
+  </button>
+  </div>
+</body>
+</html>

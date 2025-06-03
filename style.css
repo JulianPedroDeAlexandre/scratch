@@ -1,0 +1,52 @@
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f7f7f7;
+  color: #333;
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 20px;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+h2 {
+  background-color: #cccccc;
+  padding: 10px;
+  border-radius: 5px;
+}
+pre {
+  background: #eee;
+  padding: 10px;
+  border-radius: 5px;
+  overflow-x: auto;
+}
+.bloco {
+  margin-bottom: 20px;
+}
+.explicacao {
+  font-style: italic;
+}
+
+
+.bt{
+    display: flex;
+    justify-content: flex-end;
+}
+.avancar, .voltar{
+    background-color: #f7f7f7;
+    border-radius: 5px;
+    border: solid 1px  #cccccc;
+    height: 30px;
+
+}
+
+.avancar:hover, .voltar:hover{
+    background-color:#eee ;
+ 
+}
+
+a{
+    text-decoration: none;
+    color: #333;
+}

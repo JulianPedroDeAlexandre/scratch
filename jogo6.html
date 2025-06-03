@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Documentação do Projeto - Jogo Bomberman</title>
+  <link rel="stylesheet" href="./jogo6.css">
+</head>
+<body>
+  <h1>💣 Documentação do Projeto - Jogo Bomberman</h1>
+
+  <div class="bloco">
+    <h2>🎮 SPRITE: Bomberman - Evento Inicial</h2>
+    <pre>
+quando a bandeira verde for clicada
+vá para x: (-180) y: (-120)
+defina [bombas colocadas v] para [0]
+    </pre>
+    <p class="explicacao">👉 Inicializa a posição do Bomberman e o contador de bombas colocadas.</p>
+  </div>
+
+  <div class="bloco">
+    <h2>🎮 Movimento e Colocar Bombas (WASD + espaço)</h2>
+    <pre>
+sempre
+    se <tecla [a] pressionada?> então
+        mude x por -5
+    fim
+    se <tecla [d] pressionada?> então
+        mude x por 5
+    fim
+    se <tecla [w] pressionada?> então
+        mude y por 5
+    fim
+    se <tecla [s] pressionada?> então
+        mude y por -5
+    fim
+
+quando tecla [espaço] for pressionada
+se <(bombas colocadas) &lt; 3> então
+    crie clone de [Bomba]
+    mude [bombas colocadas v] por 1
+fim
+    </pre>
+    <p class="explicacao">👉 Controla o movimento do jogador e a criação das bombas (máximo 3 ao mesmo tempo).</p>
+  </div>
+
+  <div class="bloco">
+    <h2>💣 SPRITE: Bomba - Clonar e Explodir</h2>
+    <pre>
+quando eu começar como clone
+vá para x: (posição x de [Bomberman]) y: (posição y de [Bomberman])
+mostre
+espere 2 segundos
+transmita [explodir]
+delete este clone
+    </pre>
+    <p class="explicacao">👉 Cada bomba aparece na posição do Bomberman, espera 2 segundos e explode.</p>
+  </div>
+
+  <div class="bloco">
+    <h2>💥 SPRITE: Explosão - Clones nas 4 Direções</h2>
+    <pre>
+quando eu receber [explodir]
+crie clone de [Explosão]  // centro
+crie clone de [Explosão] em x+40 y
+crie clone de [Explosão] em x-40 y
+crie clone de [Explosão] em x y+40
+crie clone de [Explosão] em x y-40
+toque o som [explosão v]
+mude [bombas colocadas v] por -1
+    </pre>
+    <p class="explicacao">👉 Cria as explosões em cruz e libera espaço para novas bombas.</p>
+  </div>
+
+  <div class="bloco">
+    <h2>💥 SPRITE: Explosão - Efeito e Duração</h2>
+    <pre>
+quando eu começar como clone
+mostre
+espere 0.5 segundos
+delete este clone
+    </pre>
+    <p class="explicacao">👉 Exibe a explosão por meio segundo e remove o clone.</p>
+  </div>
+
+  <div class="bloco">
+    <h2>💥 Destruir Inimigos, Caixas e Jogador</h2>
+    <pre>
+sempre
+    se <tocando em [Caixa]> então
+        delete o clone [Caixa]
+    fim
+    se <tocando em [Inimigo]> então
+        delete o clone [Inimigo]
+    fim
+    se <tocando em [Bomberman]> então
+        transmita [game over]
+    fim
+    </pre>
+    <p class="explicacao">👉 A explosão destrói caixas, inimigos e termina o jogo se atingir o jogador.</p>
+  </div>
+
+  <div class="bloco">
+    <h2>📦 SPRITE: Caixa - Gerar Caixas no Início</h2>
+    <pre>
+quando a bandeira verde for clicada
+esconda
+repita 20 vezes
+    crie clone de [Caixa]
+    vá para x: (aleatório entre -200 e 200) y: (aleatório entre -140 e 140)
+    se <não tocando em [Parede]> e <não tocando em [Bomberman]> então
+        mostre
+    senão
+        delete este clone
+    fim
+fim
+    </pre>
+    <p class="explicacao">👉 Cria caixas aleatórias no mapa sem sobrepor paredes ou o jogador.</p>
+  </div>
+
+  <div class="bloco">
+    <h2>👾 SPRITE: Inimigo - Criação e Movimento</h2>
+    <pre>
+quando a bandeira verde for clicada
+esconda
+repita 3 vezes
+    crie clone de [Inimigo]
+    vá para x: (aleatório entre -180 e 180) y: (aleatório entre -100 e 100)
+    mostre
+fim
+
+quando eu começar como clone
+sempre
+    aponte em direção (aleatório entre 1 e 360)
+    mova 2 passos
+    se <tocando em [Parede]> então
+        gire 180°
+    fim
+    se <tocando em [Bomberman]> então
+        transmita [game over]
+    fim
+fim
+    </pre>
+    <p class="explicacao">👉 Inimigos são criados no mapa e andam aleatoriamente, causando game over se tocarem o jogador.</p>
+  </div>
+
+  <div class="bloco">
+    <h2>🏆 Sistema de Vitória</h2>
+    <pre>
+quando a bandeira verde for clicada
+sempre
+    se <(número de clones de [Inimigo]) = 0> então
+        transmita [vitória]
+    fim
+fim
+
+quando eu receber [vitória]
+diga "Você venceu!" por 3 segundos
+pare [todos]
+    </pre>
+    <p class="explicacao">👉 Quando todos os inimigos são eliminados, o jogador vence e o jogo para.</p>
+  </div>
+
+  <div class="bloco">
+    <h2>☠️ Game Over</h2>
+    <pre>
+quando eu receber [game over]
+diga "Game Over!" por 3 segundos
+pare [todos]
+    </pre>
+    <p class="explicacao">👉 Exibe a mensagem de fim de jogo e para tudo.</p>
+  </div>
+
+  <div class="bloco">
+    <h2>💎 Power-up (Opcional)</h2>
+    <pre>
+quando eu começar como clone (power-up)
+sempre
+    se <tocando em [Bomberman]> então
+        mude [raio explosão v] por 1
+        delete este clone
+    fim
+fim
+    </pre>
+    <p class="explicacao">👉 Power-ups aumentam o alcance da explosão quando coletados.</p>
+  </div>
+
+  <div class="bt">
+    <button class="avancar"><a href="./index.html">Voltar</a></button>
+  </div>
+</body>
+</html>

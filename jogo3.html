@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Documentação do Projeto - Coletor de Moedas</title>
+  <link rel="stylesheet" href="jogo3.css">
+  
+
+</head>
+<body>
+  <h1>📘 Documentação do Projeto - Coletor de Moedas</h1>
+
+
+  <div class="bloco">
+    <h2>🧍 Personagem Principal - Controle com setas</h2>
+    <pre>
+quando a bandeira verde for clicada
+sempre
+    se &lt;tecla [seta para esquerda v] pressionada?&gt; então
+        mude x por (-5)
+    fim
+    se &lt;tecla [seta para direita v] pressionada?&gt; então
+        mude x por (5)
+    fim
+fim
+    </pre>
+  </div>
+
+  <div class="bloco">
+    <h2>💰 Pegar moedas</h2>
+    <pre>
+quando a bandeira verde for clicada
+defina [pontuação v] para (0)
+
+sempre
+    se &lt;tocando em [moeda v]?&gt; então
+        mude [pontuação v] por (1)
+        toque o som [pop v]
+        esconda
+        aguarde (1) segundos
+        mostre
+        vá para x: (número aleatório entre (-220) e (220)) 
+               y: (número aleatório entre (-160) e (160))
+    fim
+fim
+    </pre>
+  </div>
+
+  <div class="bloco">
+    <h2>⏱️ Tempo Limitado</h2>
+    <pre>
+quando a bandeira verde for clicada
+defina [tempo v] para (30)
+
+sempre
+    aguarde (1) segundos
+    mude [tempo v] por (-1)
+    se &lt;(tempo) = (0)&gt; então
+        transmita [fim de jogo v]
+        pare [todos v]
+    fim
+fim
+    </pre>
+  </div>
+</div>
+<div class="bt">
+  <button class="voltar">
+    <a href="./jogo2.html">Voltar</a>
+</button>
+  <button class="avancar">
+    <a href="./jogo4.html">Avançar</a>
+</button>
+</div>
+</body>
+</html>
