@@ -10,14 +10,19 @@
 <body>
   <h1>📘 Documentação do Projeto - Jogo Dino</h1>
 
+  <div class="image">
+    <img src="./img/dino.PNG" alt="">
+  </div>
+
   <div class="bloco">
     <h2>🧩 Animação do Personagem</h2>
     <pre>
 quando [bandeira verde] for clicado
 mostre
-para sempre
+sempre
     próxima fantasia
     espere (0.1) segundos
+fim
     </pre>
     <p class="explicacao">👉 Isso faz o personagem ficar animado, como se estivesse se mexendo o tempo todo.</p>
   </div>
@@ -27,12 +32,14 @@ para sempre
     <pre>
 quando [bandeira verde] for clicado
 vá para x: (-178) y: (-146)
-para sempre
+sempre
   se &lt;tecla [espaço] pressionada?&gt; então
         deslize por (0.2) s até x: (-178) y: (posição y + 80)
         espere (0.2) segundos
         deslize por (0.2) s até x: (-178) y: (posição y - 80)
         espere (0.2) segundos
+  fim
+fim
     </pre>
     <p class="explicacao">👉 Isso faz o personagem pular quando apertar espaço.</p>
   </div>
@@ -42,9 +49,11 @@ para sempre
     <pre>
 quando [bandeira verde] for clicado
 aponte para a direção (90)
-para sempre
+sempre
   se &lt;tocando em [cactos]?&gt; então
         transmita [game over]
+  fim
+fim
     </pre>
     <p class="explicacao">👉 Isso verifica se o personagem encostou no cacto. Se sim, envia a mensagem "game over".</p>
   </div>
@@ -55,16 +64,19 @@ para sempre
 quando [bandeira verde] for clicado
 mostre
 vá para x: (250) y: (-146)
-para sempre
+sempre
     adicione (-10) a x
+fim
     </pre>
     <p class="explicacao">👉 Isso faz o cacto andar para a esquerda continuamente.</p>
 
     <pre>
 quando [bandeira verde] for clicado
-para sempre
+sempre
     se &lt;(posição x) = (-249)&gt; então
         vá para x: (250) y: (-146)
+    fim
+fim    
     </pre>
     <p class="explicacao">👉 Reinicia o cacto no lado direito da tela.</p>
   </div>
@@ -74,9 +86,10 @@ para sempre
     <pre>
 quando [bandeira verde] for clicado
 mostre
-para sempre
+sempre
     próxima fantasia
     espere (0.2) segundos
+fim
     </pre>
     <p class="explicacao">👉 Faz o chão parecer que está se movendo continuamente.</p>
   </div>
@@ -87,13 +100,16 @@ para sempre
 quando [bandeira verde] for clicado
 mostre
 vá para x: (168) y: (-16)
-para sempre
+sempre
     mova (-1.5) passos
+fim
 
 quando [bandeira verde] for clicado
-para sempre
+sempre
     se &lt;(posição x) = -273&gt; então
         vá para x: (168) y: (-16)
+    fim
+fim    
     </pre>
     <p class="explicacao">👉 Nuvem que se move e retorna para a direita ao sair da tela.</p>
   </div>
@@ -104,13 +120,16 @@ para sempre
 quando [bandeira verde] for clicado
 mostre
 vá para x: (216) y: (145)
-para sempre
+sempre
     mova (-1) passos
+fim
 
 quando [bandeira verde] for clicado
-para sempre
+sempre
     se  &lt;posição x = -273&gt; então
         vá para x: (216) y: (145)
+    fim
+fim
     </pre>
   </div>
 
@@ -119,9 +138,10 @@ para sempre
     <pre>
 quando [bandeira verde] for clicado
 esconda
-para sempre
+sempre
     próxima fantasia
     espere (0.1) segundos
+fim
 
 quando eu receber [game over]
 mostre
