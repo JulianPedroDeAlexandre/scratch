@@ -3,74 +3,100 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Documentação do Projeto - Coletor de Moedas</title>
+  <title>Documentação do Projeto - Jogo One Piece</title>
   <link rel="stylesheet" href="jogo3.css">
-  
-
+ 
 </head>
 <body>
-  <h1>📘 Documentação do Projeto - Coletor de Moedas</h1>
+  <h1>📘 Documentação do Projeto - Jogo de pegar frutas</h1>
 
-
-  <div class="bloco">
-    <h2>🧍 Personagem Principal - Controle com setas</h2>
-    <pre>
-quando a bandeira verde for clicada
-sempre
-    se &lt;tecla [seta para esquerda v] pressionada?&gt; então
-        mude x por (-5)
-    fim
-    se &lt;tecla [seta para direita v] pressionada?&gt; então
-        mude x por (5)
-    fim
-fim
-    </pre>
+  <div class="image">
+    <img src="./img/pegaFruta.PNG" alt="Personagem One Piece">
   </div>
 
   <div class="bloco">
-    <h2>💰 Pegar moedas</h2>
+    <h2>🧩 Controles do Personagem</h2>
     <pre>
-quando a bandeira verde for clicada
-defina [pontuação v] para (0)
-
+quando [bandeira verde] for clicado
 sempre
-    se &lt;tocando em [moeda v]?&gt; então
-        mude [pontuação v] por (1)
-        toque o som [pop v]
-        esconda
-        aguarde (1) segundos
-        mostre
-        vá para x: (número aleatório entre (-220) e (220)) 
-               y: (número aleatório entre (-160) e (160))
-    fim
+  se &lt;tecla [seta para direita] pressionada?&gt; então
+    adicione (10) a x
+    aponte para a direção (90)
+  fim
+  se &lt;tecla [seta para esquerda] pressionada?&gt; então
+    adicione (-10) a x
+    aponte para a direção (-90)
+  fim
 fim
+
+quando [bandeira verde] for clicado
+mostre
+sempre
+    próxima fantasia
+    espere (0.1) segundos
+fim
+      
     </pre>
+    <p class="explicacao">👉 Permite mover o personagem para esquerda e direita usando as teclas do teclado.</p>
+    <p class="explicacao">👉 Deixa o personagem animado.</p>
   </div>
 
   <div class="bloco">
-    <h2>⏱️ Tempo Limitado</h2>
+    <h2>🧩 Programação da Fruta</h2>
     <pre>
-quando a bandeira verde for clicada
-defina [tempo v] para (30)
-
+quando [bandeira verde] for clicado
+mude [pontos] para (0)
 sempre
-    aguarde (1) segundos
-    mude [tempo v] por (-1)
-    se &lt;(tempo) = (0)&gt; então
-        transmita [fim de jogo v]
-        pare [todos v]
-    fim
+  se &lt;tocando em [personagem]?&gt; então
+    adicione (1) a [pontos]
+    vá para x: (número aleatório entre (-230) e (230)) y: (170)
+  fim
+fim
+
+quando [bandeira verde] for clicado
+vá para x: (número aleatório entre (-230) e (230)) y: (170)
+sempre
+  adicione (-10) a y
+  se &lt;(posição y) &lt; (-170)&gt; então
+    adicione (-1) a [pontos]
+    vá para x: (número aleatório entre (-230) e (230)) y: (170)
+  fim
 fim
     </pre>
+    <p class="explicacao">👉 Quando a fruta colide com personagem, adiciona 1 nos pontos, quando colide com o chão perdemos 1 ponto.</p>
+    <p class="explicacao">👉 Faz a fruta cair e reaparecer no topo quando coletada ou quando sai da tela.</p>
   </div>
-</div>
-<div class="bt">
-  <button class="voltar">
-    <a href="./jogo2.html">Voltar</a>
-</button>
-  <button class="avancar">
-    <a href="./jogo4.html">Avançar</a>
-</button>
-</div>
+
+  <div class="bloco">
+    <h2>💣 Programação da Bomba</h2>
+    <pre>
+quando [bandeira verde] for clicado
+sempre
+  se &lt;tocando em [personagem]?&gt; então
+    adicione (-2) a [pontos]
+    vá para x: (número aleatório entre (-230) e (230)) y: (170)
+  fim
+fim
+
+quando [bandeira verde] for clicado
+vá para x: (número aleatório entre (-230) e (230)) y: (170)
+sempre
+  adicione (-8) a y
+  se &lt;(posição y) &lt; (-170)&gt; então
+    vá para x: (número aleatório entre (-230) e (230)) y: (170)
+  fim
+fim
+          </pre>
+    <p class="explicacao">👉 Faz a bomba cair mais devagar que a fruta e penaliza o jogador com -2 pontos se for atingido.</p>
+  </div>
+
+  <div class="bt">
+    <button class="voltar">
+      <a href="./jogo2.html">Voltar</a>
+  </button>
+    <button class="avancar">
+      <a href="./jogo4.html">Avançar</a>
+    </button>
+  </div>
 </body>
 </html>
